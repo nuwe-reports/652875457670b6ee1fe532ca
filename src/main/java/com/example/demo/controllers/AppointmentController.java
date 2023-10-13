@@ -30,7 +30,7 @@ public class AppointmentController {
     public ResponseEntity<List<Appointment>> getAllAppointments(){
         List<Appointment> appointments = new ArrayList<>();
 
-        appointmentRepository.findAll().forEach(appointments::add);
+        appointments.addAll(appointmentRepository.findAll());
 
         if (appointments.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -52,11 +52,20 @@ public class AppointmentController {
 
     @PostMapping("/appointment")
     public ResponseEntity<List<Appointment>> createAppointment(@RequestBody Appointment appointment){
-        /** TODO 
-         * Implement this function, which acts as the POST /api/appointment endpoint.
-         * Make sure to check out the whole project. Specially the Appointment.java class
-         */
-        return new ResponseEntity<>(HttpStatus.I_AM_A_TEAPOT);
+
+
+        List<Appointment> appointments = new ArrayList<>(appointmentRepository.findAll());
+        //To verify if our appointment overlaps an existing one
+        if(!appointments.isEmpty()){
+            for(Appointment existingAppointment : appointments){
+                if (existingAppointment.overlaps(appointment)){
+                    return new ResponseEntity<>(HttpStatus.CONFLICT);
+                }
+            }
+        }
+
+        appointmentRepository.save(appointment);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
 
