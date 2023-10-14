@@ -27,15 +27,16 @@ class EntityUnitTest {
 	@Autowired
 	private TestEntityManager entityManager;
 
-	private Doctor d1;
+    //Change all variable name for a clean code
+	private Doctor firstDoctor;
 
-	private Patient p1;
+	private Patient firstPatient;
 
-    private Room r1;
+    private Room firstRoom;
 
-    private Appointment a1;
-    private Appointment a2;
-    private Appointment a3;
+    private Appointment firstAppointment;
+    private Appointment secondAppointment;
+    private Appointment thirthAppointment;
 
     @Test
     void this_is_a_test(){

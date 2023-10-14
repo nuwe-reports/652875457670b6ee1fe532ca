@@ -59,13 +59,16 @@ public class AppointmentController {
         if(!appointments.isEmpty()){
             for(Appointment existingAppointment : appointments){
                 if (existingAppointment.overlaps(appointment)){
-                    return new ResponseEntity<>(HttpStatus.CONFLICT);
+                    return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
                 }
             }
         }
 
+        if(appointment.getStartsAt().equals(appointment.getFinishesAt()))
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
         appointmentRepository.save(appointment);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 
