@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AppointmentController {
 
     @Autowired
-    AppointmentRepository appointmentRepository;
+    private AppointmentRepository appointmentRepository;
 
     @GetMapping("/appointments")
     public ResponseEntity<List<Appointment>> getAllAppointments(){
