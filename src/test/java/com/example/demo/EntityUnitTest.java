@@ -26,12 +26,7 @@ class EntityUnitTest {
 
 	@Autowired
 	private TestEntityManager entityManager;
-
-    private Appointment firstAppointment;
-    private Appointment secondAppointment;
-    private Appointment thirthAppointment;
-
-    //Doctor tests
+//Doctor tests
     @Test
     void shouldCreateDoctor() throws Exception {
         String firstName = "Paulino";
@@ -45,7 +40,7 @@ class EntityUnitTest {
         assertThat(doctor.getLastName()).isEqualTo(lastName);
         assertThat(doctor.getAge()).isEqualTo(age);
         assertThat(doctor.getEmail()).isEqualTo(email);
-        assertThat(doctor.getId()).isInstanceOf(long.class);
+        assertThat(doctor.getId()).isInstanceOf(Long.class);
     }
 
     @Test
@@ -73,7 +68,7 @@ class EntityUnitTest {
         assertThat(patient.getLastName()).isEqualTo(lastName);
         assertThat(patient.getAge()).isEqualTo(age);
         assertThat(patient.getEmail()).isEqualTo(email);
-        assertThat(patient.getId()).isInstanceOf(long.class);
+        assertThat(patient.getId()).isInstanceOf(Long.class);
     }
 
     @Test
@@ -114,7 +109,7 @@ class EntityUnitTest {
         assertThat(appointment.getRoom()).isEqualTo(room);
         assertThat(appointment.getStartsAt()).isEqualTo(startsAt);
         assertThat(appointment.getFinishesAt()).isEqualTo(finishesAt);
-        assertThat(appointment.getId()).isInstanceOf(long.class);
+        assertThat(appointment.getId()).isInstanceOf(Long.class);
     }
 
     @Test
@@ -233,13 +228,52 @@ class EntityUnitTest {
 
         LocalDateTime newFinishesAt= LocalDateTime.parse("19:40 24/04/2023", formatter);
 
-        appointment.setStartsAt(newFinishesAt);
+        appointment.setFinishesAt(newFinishesAt);
 
         assertThat(appointment.getFinishesAt()).isEqualTo(newFinishesAt);
     }
 
     @Test
     void shouldCheckAppointmentOverlaps(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm dd/MM/yyyy");
+
+        Doctor firstDoctor = new Doctor("Paulino", "antunez", 21, "p.antunez@hospital.accwe");
+        Patient firstPatient = new Patient("Miren", "Amalia", 31, "m.amalia@hospital.accwe");
+        Room firstRoom = new Room("Dermatology");
+        //  A
+            LocalDateTime firstStartsAt= LocalDateTime.parse("17:20 24/04/2023", formatter);
+            LocalDateTime firstFinishesAt = LocalDateTime.parse("21:30 24/04/2023", formatter);
+
+        Appointment firstAppointment = new Appointment(firstPatient, firstDoctor, firstRoom, firstStartsAt, firstFinishesAt);
+
+        Doctor secondDoctor = new Doctor("Paulino", "antunez", 24, "p.antunez@hospital.accwe");
+        Patient secondPatient = new Patient("Miren", "Amalia", 33, "m.amalia@hospital.accwe");
+        Room secondRoom = new Room("Dermatology");
+        //  B
+            LocalDateTime secondStartsAt= LocalDateTime.parse("18:20 24/04/2023", formatter);
+            LocalDateTime secondFinishesAt = LocalDateTime.parse("21:30 24/04/2023", formatter);
+
+        Appointment secondAppointment = new Appointment(secondPatient, secondDoctor, secondRoom, secondStartsAt, secondFinishesAt);
+
+        Doctor thirthDotor = new Doctor("Paulino", "antunez", 27, "p.antunez@hospital.accwe");
+        Patient thirthPatient = new Patient("Miren", "Amalia", 37, "m.amalia@hospital.accwe");
+        Room thirthRoom = new Room("Dermatology");
+        //  C
+            LocalDateTime thirthStartsAt= LocalDateTime.parse("18:20 24/04/2023", formatter);
+            LocalDateTime thirthFinishesAt = LocalDateTime.parse("21:30 24/04/2023", formatter);
+
+        Appointment thirthAppointment = new Appointment(thirthPatient, thirthDotor, thirthRoom, thirthStartsAt, thirthFinishesAt);
+
+        /// True when:
+        // Case 1: A.starts == B.starts
+        // Case 2: A.finishes == B.finishes
+        // Case 3: A.starts < B.finishes && B.finishes < A.finishes
+        // Case 4: B.starts < A.starts && A.finishes < B.finishes
+
+        assertThat(thirthAppointment.overlaps(secondAppointment)).isTrue();
+        assertThat(thirthAppointment.overlaps(firstAppointment)).isTrue();
+        assertThat(firstAppointment.overlaps(secondAppointment)).isTrue();
+        assertThat(secondAppointment.overlaps(firstAppointment)).isTrue();
 
     }
 
