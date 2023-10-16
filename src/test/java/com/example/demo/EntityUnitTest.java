@@ -26,9 +26,9 @@ class EntityUnitTest {
 
 	@Autowired
 	private TestEntityManager entityManager;
-//Doctor tests
+
     @Test
-    void shouldCreateDoctor() throws Exception {
+    void shouldCreateDoctor() {
         String firstName = "Paulino";
         String lastName = "Antunez";
         int age = 24;
@@ -54,9 +54,8 @@ class EntityUnitTest {
         assertThat(doctor.getId()).isEqualTo(newDoctorId);
     }
 
-//patient tests
     @Test
-    void shouldCreatePatient() throws Exception {
+    void shouldCreatePatient() {
         String firstName = "Miren";
         String lastName = "Amalia";
         int age = 33;
@@ -72,7 +71,7 @@ class EntityUnitTest {
     }
 
     @Test
-    void shouldChangePatientId(){
+    void shouldChangePatientId() {
         Patient patient = new Patient("Miren", "Amalia", 33, "m.amalia@hospital.accwe");
         long patiendId = patient.getId();
         long newPatientId = patiendId + 1; // arbitrary number so there's no possibility to be the same;
@@ -81,18 +80,18 @@ class EntityUnitTest {
 
         assertThat(patient.getId()).isEqualTo(newPatientId);
     }
-//room test
+
     @Test
-    void shouldCreateRoom() throws Exception {
+    void shouldCreateRoom() {
         String roomName = "Dermatology";
 
         Room room = new Room(roomName);
 
         assertThat(room.getRoomName()).isEqualTo(roomName);
     }
-//appointment test
+
     @Test
-    void shouldCreateAppointment() throws Exception {
+    void shouldCreateAppointment() {
         Doctor doctor = new Doctor("Paulino", "antunez", 24, "p.antunez@hospital.accwe");
         Patient patient = new Patient("Miren", "Amalia", 33, "m.amalia@hospital.accwe");
         Room room = new Room("Dermatology");
@@ -113,7 +112,7 @@ class EntityUnitTest {
     }
 
     @Test
-    void shouldChangeAppointmentId() throws Exception{
+    void shouldChangeAppointmentId() {
         Doctor doctor = new Doctor("Paulino", "antunez", 24, "p.antunez@hospital.accwe");
         Patient patient = new Patient("Miren", "Amalia", 33, "m.amalia@hospital.accwe");
         Room room = new Room("Dermatology");
@@ -134,7 +133,7 @@ class EntityUnitTest {
     }
 
     @Test
-    void shouldChangeAppointmentDoctor() throws Exception {
+    void shouldChangeAppointmentDoctor() {
         Doctor doctor = new Doctor("Paulino", "antunez", 24, "p.antunez@hospital.accwe");
         Patient patient = new Patient("Miren", "Amalia", 33, "m.amalia@hospital.accwe");
         Room room = new Room("Dermatology");
@@ -154,7 +153,7 @@ class EntityUnitTest {
     }
 
     @Test
-    void shouldChangeAppointmentPatient() throws Exception {
+    void shouldChangeAppointmentPatient() {
         Doctor doctor = new Doctor("Paulino", "antunez", 24, "p.antunez@hospital.accwe");
         Patient patient = new Patient("Miren", "Amalia", 33, "m.amalia@hospital.accwe");
         Room room = new Room("Dermatology");
@@ -174,7 +173,7 @@ class EntityUnitTest {
     }
 
     @Test
-    void shouldChangeAppointmentRoom(){
+    void shouldChangeAppointmentRoom() {
         Doctor doctor = new Doctor("Paulino", "antunez", 24, "p.antunez@hospital.accwe");
         Patient patient = new Patient("Miren", "Amalia", 33, "m.amalia@hospital.accwe");
         Room room = new Room("Dermatology");
@@ -194,7 +193,7 @@ class EntityUnitTest {
     }
 
     @Test
-    void shouldChangeAppointmentStartTime() throws Exception {
+    void shouldChangeAppointmentStartTime() {
         Doctor doctor = new Doctor("Paulino", "antunez", 24, "p.antunez@hospital.accwe");
         Patient patient = new Patient("Miren", "Amalia", 33, "m.amalia@hospital.accwe");
         Room room = new Room("Dermatology");
@@ -214,7 +213,7 @@ class EntityUnitTest {
     }
 
     @Test
-    void shouldChangeAppointmentFinishTime() throws Exception {
+    void shouldChangeAppointmentFinishTime() {
         Doctor doctor = new Doctor("Paulino", "antunez", 24, "p.antunez@hospital.accwe");
         Patient patient = new Patient("Miren", "Amalia", 33, "m.amalia@hospital.accwe");
         Room room = new Room("Dermatology");
@@ -234,13 +233,13 @@ class EntityUnitTest {
     }
 
     @Test
-    void shouldCheckAppointmentOverlaps(){
+    void shouldCheckAppointmentOverlaps() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm dd/MM/yyyy");
 
         Doctor firstDoctor = new Doctor("Paulino", "antunez", 21, "p.antunez@hospital.accwe");
         Patient firstPatient = new Patient("Miren", "Amalia", 31, "m.amalia@hospital.accwe");
         Room firstRoom = new Room("Dermatology");
-        //  A
+
             LocalDateTime firstStartsAt= LocalDateTime.parse("17:20 24/04/2023", formatter);
             LocalDateTime firstFinishesAt = LocalDateTime.parse("21:30 24/04/2023", formatter);
 
@@ -249,7 +248,7 @@ class EntityUnitTest {
         Doctor secondDoctor = new Doctor("Paulino", "antunez", 24, "p.antunez@hospital.accwe");
         Patient secondPatient = new Patient("Miren", "Amalia", 33, "m.amalia@hospital.accwe");
         Room secondRoom = new Room("Dermatology");
-        //  B
+
             LocalDateTime secondStartsAt= LocalDateTime.parse("18:20 24/04/2023", formatter);
             LocalDateTime secondFinishesAt = LocalDateTime.parse("21:30 24/04/2023", formatter);
 
@@ -258,7 +257,7 @@ class EntityUnitTest {
         Doctor thirthDotor = new Doctor("Paulino", "antunez", 27, "p.antunez@hospital.accwe");
         Patient thirthPatient = new Patient("Miren", "Amalia", 37, "m.amalia@hospital.accwe");
         Room thirthRoom = new Room("Dermatology");
-        //  C
+
             LocalDateTime thirthStartsAt= LocalDateTime.parse("18:20 24/04/2023", formatter);
             LocalDateTime thirthFinishesAt = LocalDateTime.parse("21:30 24/04/2023", formatter);
 
@@ -277,8 +276,4 @@ class EntityUnitTest {
 
     }
 
-    /** TODO
-     * Implement tests for each Entity class: Doctor, Patient, Room and Appointment.
-     * Make sure you are as exhaustive as possible. Coverage is checked ;)
-     */
 }
