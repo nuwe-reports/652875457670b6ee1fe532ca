@@ -112,7 +112,7 @@ class DoctorControllerUnitTest{
     }
 
     @Test
-    void  shouldDeleteDoctor() throws Exception {
+    void  shouldDeleteDoctorById() throws Exception {
         Doctor doctor = new Doctor ("Perla", "Amalia", 24, "p.amalia@hospital.accwe");
 
         doctor.setId(10);
@@ -218,7 +218,7 @@ class PatientControllerUnitTest{
     }
 
     @Test
-    void  shouldDeletePatient() throws Exception {
+    void  shouldDeletePatientById() throws Exception {
         Patient patient = new Patient ("Perla", "Amalia", 24, "p.amalia@hospital.accwe");
 
         patient.setId(10);
