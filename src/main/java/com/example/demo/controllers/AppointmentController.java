@@ -53,7 +53,6 @@ public class AppointmentController {
     @PostMapping("/appointment")
     public ResponseEntity<List<Appointment>> createAppointment(@RequestBody Appointment appointment){
 
-
         List<Appointment> appointments = new ArrayList<>(appointmentRepository.findAll());
         //To verify if our appointment overlaps an existing one
         if(!appointments.isEmpty()){
@@ -84,7 +83,6 @@ public class AppointmentController {
         appointmentRepository.deleteById(id);
 
         return new ResponseEntity<>(HttpStatus.OK);
-        
     }
 
     @DeleteMapping("/appointments")
