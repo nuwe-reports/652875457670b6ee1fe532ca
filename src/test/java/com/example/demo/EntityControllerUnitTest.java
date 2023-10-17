@@ -161,7 +161,7 @@ class PatientControllerUnitTest{
 
     @Test
     void shouldCreatePatient() throws Exception {
-        Patient patient = new Patient ("Perla", "Amalia", 24, "p.amalia@hospital.accwe");
+        Patient patient = new Patient("Jose Luis", "Olaya", 37, "j.olaya@email.com");
 
         mockMvc.perform(post("/api/patient").contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(patient)))
@@ -178,7 +178,7 @@ class PatientControllerUnitTest{
 
     @Test
     void  shouldGetTwoPatients() throws Exception {
-        Patient patient = new Patient ("Perla", "Amalia", 24, "p.amalia@hospital.accwe");
+        Patient patient = new Patient("Jose Luis", "Olaya", 37, "j.olaya@email.com");
         Patient patient2 = new Patient ("Miren", "Iniesta", 26, "m.iniesta@hospital.accwe");
 
         List<Patient> patients = new ArrayList<>();
@@ -193,7 +193,7 @@ class PatientControllerUnitTest{
 
     @Test
     void  shouldGetPatientById() throws Exception {
-        Patient patient = new Patient ("Perla", "Amalia", 24, "p.amalia@hospital.accwe");
+        Patient patient = new Patient("Jose Luis", "Olaya", 37, "j.olaya@email.com");
 
         patient.setId(10);
 
@@ -219,7 +219,7 @@ class PatientControllerUnitTest{
 
     @Test
     void  shouldDeletePatientById() throws Exception {
-        Patient patient = new Patient ("Perla", "Amalia", 24, "p.amalia@hospital.accwe");
+        Patient patient = new Patient("Jose Luis", "Olaya", 37, "j.olaya@email.com");
 
         patient.setId(10);
 
@@ -265,9 +265,90 @@ class RoomControllerUnitTest{
     private ObjectMapper objectMapper;
 
     @Test
-    void this_is_a_test(){
-        // DELETE ME
-        assertThat(true).isEqualTo(false);
+    void shouldCreateRoom() throws Exception {
+        Room room = new Room("Dermatology");
+
+        mockMvc.perform(post("/api/room").contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(room)))
+                .andExpect(status().isCreated());
+
+    }
+
+    @Test
+    void  shouldGetNoRooms() throws Exception {
+        mockMvc.perform(get("/api/rooms"))
+                .andExpect(status().isNoContent());
+
+    }
+
+    @Test
+    void  shouldGetTwoRooms() throws Exception {
+        Room room = new Room("Dermatology");
+        Room room2 = new Room("Rheumatology");
+
+        List<Room> rooms = new ArrayList<>();
+        rooms.add(room);
+        rooms.add(room2);
+
+        when(roomRepository.findAll()).thenReturn(rooms);
+        mockMvc.perform(get("/api/rooms"))
+                .andExpect(status().isOk());
+
+    }
+
+    @Test
+    void  shouldGetRoomByName() throws Exception {
+        Room room = new Room("Dermatology");
+
+        Optional<Room> opt = Optional.of(room);
+
+        assertThat(opt).isPresent();
+        assertThat(room.getRoomName()).isEqualTo("Dermatology");
+
+        when(roomRepository.findByRoomName(room.getRoomName())).thenReturn(opt);
+        mockMvc.perform(get("/api/rooms/" + room.getRoomName()))
+                .andExpect(status().isOk());
+
+    }
+
+    @Test
+    void  ShouldNotGetRoomByName() throws Exception {
+        String roomName = "Cardiology";
+
+        mockMvc.perform(get("/api/rooms/" + roomName))
+                .andExpect(status().isNotFound());
+
+    }
+
+    @Test
+    void  shouldDeleteRoomByName() throws Exception {
+        Room room = new Room("Dermatology");
+
+        Optional<Room> opt = Optional.of(room);
+
+        assertThat(opt).isPresent();
+        assertThat(room.getRoomName()).isEqualTo("Dermatology");
+
+        when(roomRepository.findByRoomName(room.getRoomName())).thenReturn(opt);
+        mockMvc.perform(delete("/api/rooms/" + room.getRoomName()))
+                .andExpect(status().isOk());
+
+    }
+
+    @Test
+    void  shouldNotDeleteRoom() throws Exception {
+        String roomName = "Cardiology";
+
+        mockMvc.perform(delete("/api/rooms/" + roomName))
+                .andExpect(status().isNotFound());
+
+    }
+
+    @Test
+    void  shouldDeleteAllRooms() throws Exception {
+        mockMvc.perform(delete("/api/rooms"))
+                .andExpect(status().isOk());
+
     }
 
 }
