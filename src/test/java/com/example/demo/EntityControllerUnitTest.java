@@ -54,6 +54,23 @@ class DoctorControllerUnitTest{
     private ObjectMapper objectMapper;
 
     @Test
+    void shouldCreateDoctor() throws Exception {
+        Doctor doctor = new Doctor ("Perla", "Amalia", 24, "p.amalia@hospital.accwe");
+
+        mockMvc.perform(post("/api/doctor").contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(doctor)))
+                .andExpect(status().isCreated());
+
+    }
+
+    @Test
+    void  shouldGetNoDoctors() throws Exception {
+        mockMvc.perform(get("/api/doctors"))
+                .andExpect(status().isNoContent());
+
+    }
+
+    @Test
     void  shouldGetTwoDoctors() throws Exception {
         Doctor doctor = new Doctor ("Perla", "Amalia", 24, "p.amalia@hospital.accwe");
         Doctor doctor2 = new Doctor ("Miren", "Iniesta", 26, "m.iniesta@hospital.accwe");
@@ -65,13 +82,6 @@ class DoctorControllerUnitTest{
         when(doctorRepository.findAll()).thenReturn(doctors);
         mockMvc.perform(get("/api/doctors"))
                 .andExpect(status().isOk());
-
-    }
-
-    @Test
-    void  shouldGetNoDoctors() throws Exception {
-        mockMvc.perform(get("/api/doctors"))
-                .andExpect(status().isNoContent());
 
     }
 
@@ -98,16 +108,6 @@ class DoctorControllerUnitTest{
         long id = 31;
         mockMvc.perform(get("/api/doctors/" + id))
                 .andExpect(status().isNotFound());
-
-    }
-
-    @Test
-    void shouldCreateDoctor() throws Exception {
-        Doctor doctor = new Doctor ("Perla", "Amalia", 24, "p.amalia@hospital.accwe");
-
-        mockMvc.perform(post("/api/doctor").contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(doctor)))
-                 .andExpect(status().isCreated());
 
     }
 
@@ -160,6 +160,23 @@ class PatientControllerUnitTest{
     private ObjectMapper objectMapper;
 
     @Test
+    void shouldCreatePatient() throws Exception {
+        Patient patient = new Patient ("Perla", "Amalia", 24, "p.amalia@hospital.accwe");
+
+        mockMvc.perform(post("/api/patient").contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(patient)))
+                .andExpect(status().isCreated());
+
+    }
+
+    @Test
+    void  shouldGetNoPatients() throws Exception {
+        mockMvc.perform(get("/api/patients"))
+                .andExpect(status().isNoContent());
+
+    }
+
+    @Test
     void  shouldGetTwoPatients() throws Exception {
         Patient patient = new Patient ("Perla", "Amalia", 24, "p.amalia@hospital.accwe");
         Patient patient2 = new Patient ("Miren", "Iniesta", 26, "m.iniesta@hospital.accwe");
@@ -171,13 +188,6 @@ class PatientControllerUnitTest{
         when(patientRepository.findAll()).thenReturn(patients);
         mockMvc.perform(get("/api/patients"))
                 .andExpect(status().isOk());
-
-    }
-
-    @Test
-    void  shouldGetNoPatients() throws Exception {
-        mockMvc.perform(get("/api/patients"))
-                .andExpect(status().isNoContent());
 
     }
 
@@ -204,16 +214,6 @@ class PatientControllerUnitTest{
         long id = 31;
         mockMvc.perform(get("/api/patients/" + id))
                 .andExpect(status().isNotFound());
-
-    }
-
-    @Test
-    void shouldCreatePatient() throws Exception {
-        Patient patient = new Patient ("Perla", "Amalia", 24, "p.amalia@hospital.accwe");
-
-        mockMvc.perform(post("/api/patient").contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(patient)))
-                 .andExpect(status().isCreated());
 
     }
 
