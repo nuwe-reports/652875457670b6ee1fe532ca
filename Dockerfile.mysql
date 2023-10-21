@@ -1,0 +1,9 @@
+# Use an official MySQL image
+FROM mysql:5.7
+
+# Environment variables to configure the database
+ENV MYSQL_ROOT_PASSWORD=root
+ENV MYSQL_DATABASE=accwe-hospital
+
+# Copy SQL scripts into the container
+COPY ./database/ /docker-entrypoint-initdb.d/

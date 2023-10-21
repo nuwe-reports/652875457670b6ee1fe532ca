@@ -5,14 +5,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
@@ -240,8 +238,8 @@ class EntityUnitTest {
         Patient firstPatient = new Patient("Miren", "Amalia", 31, "m.amalia@hospital.accwe");
         Room firstRoom = new Room("Dermatology");
 
-            LocalDateTime firstStartsAt= LocalDateTime.parse("17:20 24/04/2023", formatter);
-            LocalDateTime firstFinishesAt = LocalDateTime.parse("21:30 24/04/2023", formatter);
+        LocalDateTime firstStartsAt= LocalDateTime.parse("17:20 24/04/2023", formatter);
+        LocalDateTime firstFinishesAt = LocalDateTime.parse("21:30 24/04/2023", formatter);
 
         Appointment firstAppointment = new Appointment(firstPatient, firstDoctor, firstRoom, firstStartsAt, firstFinishesAt);
 
@@ -249,8 +247,8 @@ class EntityUnitTest {
         Patient secondPatient = new Patient("Miren", "Amalia", 33, "m.amalia@hospital.accwe");
         Room secondRoom = new Room("Dermatology");
 
-            LocalDateTime secondStartsAt= LocalDateTime.parse("18:20 24/04/2023", formatter);
-            LocalDateTime secondFinishesAt = LocalDateTime.parse("21:30 24/04/2023", formatter);
+        LocalDateTime secondStartsAt= LocalDateTime.parse("18:20 24/04/2023", formatter);
+        LocalDateTime secondFinishesAt = LocalDateTime.parse("20:30 24/04/2023", formatter);
 
         Appointment secondAppointment = new Appointment(secondPatient, secondDoctor, secondRoom, secondStartsAt, secondFinishesAt);
 
@@ -258,21 +256,15 @@ class EntityUnitTest {
         Patient thirthPatient = new Patient("Miren", "Amalia", 37, "m.amalia@hospital.accwe");
         Room thirthRoom = new Room("Dermatology");
 
-            LocalDateTime thirthStartsAt= LocalDateTime.parse("18:20 24/04/2023", formatter);
-            LocalDateTime thirthFinishesAt = LocalDateTime.parse("21:30 24/04/2023", formatter);
+        LocalDateTime thirthStartsAt= LocalDateTime.parse("20:20 24/04/2023", formatter);
+        LocalDateTime thirthFinishesAt = LocalDateTime.parse("21:30 24/04/2023", formatter);
 
         Appointment thirthAppointment = new Appointment(thirthPatient, thirthDotor, thirthRoom, thirthStartsAt, thirthFinishesAt);
 
-        /// True when:
-        // Case 1: A.starts == B.starts
-        // Case 2: A.finishes == B.finishes
-        // Case 3: A.starts < B.finishes && B.finishes < A.finishes
-        // Case 4: B.starts < A.starts && A.finishes < B.finishes
-
-        assertThat(thirthAppointment.overlaps(secondAppointment)).isTrue();
-        assertThat(thirthAppointment.overlaps(firstAppointment)).isTrue();
+        assertThat(firstAppointment.overlaps(firstAppointment)).isTrue();
+        assertThat(firstAppointment.overlaps(thirthAppointment)).isTrue();
         assertThat(firstAppointment.overlaps(secondAppointment)).isTrue();
-        assertThat(secondAppointment.overlaps(firstAppointment)).isTrue();
+        assertThat(secondAppointment.overlaps(thirthAppointment)).isTrue();
 
     }
 
