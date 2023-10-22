@@ -1,0 +1,873 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Accenture-NuWe</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d2f12fba-f080-4494-bfb4-b5e9bda8a526" class="page sans"><header><h1 class="page-title">Accenture-NuWe</h1><p class="page-description"></p></header><div class="page-body"><h1 id="62ef726f-9294-4e41-90fd-d156b9c53a2e" class=""><strong>accenture-techhub</strong></h1><p id="06c18491-fc09-4583-8b25-f89395fa374a" class="">This document brings together the HTTP request for an API to perform the appointment management functionality in a hospital environment that is part of the Accenture-Nuwe Java Back End Developer challenge [accenture-techhub].</p><p id="5fe2138e-f014-4a0f-949b-6b56adc99a44" class="">The base URL for all API requests is: <mark class="highlight-red">https://{url}/api</mark></p><h2 id="73ebde53-2d1f-41f4-98ac-9045c04568f7" class="">Endpoints</h2><h3 id="1077c342-ad1c-4731-8023-d3cb7638032d" class="">Rooms</h3><ul id="2356ad09-5481-46cc-a4f7-b0cfd0f87f7c" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">GET /rooms </mark>returns a list of all rooms</li></ul><ul id="4b1e4822-b62c-4a34-92b5-84d50935eaac" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">GET /room/{roomName}</mark> returns a room with the specified name</li></ul><ul id="65aacf5c-c2fb-4f43-b1fc-ea2feb8c13ee" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">POST /room </mark>creates the specified room</li></ul><ul id="ac8c2560-9ee8-4497-a2f4-1214d6dbd899" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">DELETE /room/{roomName}</mark> deletes a room with the specified name</li></ul><ul id="8b825587-19cc-4f08-bf53-2069d5678013" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">DELETE /rooms</mark> deletes all rooms</li></ul><h3 id="d58c974f-db8c-4b04-9321-491afaa9f032" class="">Patient</h3><ul id="dba9f44f-848a-45f4-bac4-e8f775a06037" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">GET /patients</mark> returns a list of all patients</li></ul><ul id="4054b4d4-a947-4012-8d33-15b098d0cae8" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">GET /patient/{id}</mark> returns a patient with the specified id</li></ul><ul id="f767fb55-4aed-4017-857f-1587e91a8318" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">POST /patient</mark> creates a patient</li></ul><ul id="d6b11ce0-4b6d-45d9-8a80-1662387ee04f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">DELETE /patient/{id}</mark> deletes a patient with the specified id</li></ul><ul id="4a113bec-6f54-4136-97bd-190d46823526" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">DELETE /patients</mark> deletes all patients</li></ul><h3 id="97ef4730-52a6-42bb-8c1a-530773792eeb" class="">Doctors</h3><ul id="9e5775b9-3526-4f61-8ce7-48ed3645cc91" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">GET /doctors </mark>returns a list of all patients</li></ul><ul id="b6ce0710-c92e-4155-8ecd-f98abd1042a1" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">GET /doctor/{id}</mark> returns a doctor with the specified id</li></ul><ul id="ee8d7e00-fdc7-459b-ac98-62bf556243eb" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">POST /doctor</mark> creates a doctor</li></ul><ul id="d43bf221-6902-4c7e-92cb-26ce6fba4e2f" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">DELETE /doctor/{id}</mark> deletes a doctor with the specified id</li></ul><ul id="dbb79c09-8a93-4633-b521-e9d6a9c25000" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">DELETE /doctors</mark> deletes all doctors</li></ul><h3 id="3b0ff7e2-c94a-4bf4-aab0-c2b9094cd2d4" class="">Appointments</h3><ul id="289e3088-4a41-468d-85a5-18644d261bb6" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">GET /appointments</mark> returns a list with all appointments</li></ul><ul id="54930b95-648e-4342-8cdc-a8066a2e2286" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">GET /appointment/{id} </mark>returns an appointment with the specified id</li></ul><ul id="2d5ef7fa-0be2-429f-b95d-1dc2f7dbcbc2" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">POST /appointment</mark> creates an appointment</li></ul><ul id="240e1b41-85f7-46d6-a7cf-2b008be417db" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">DELETE /appointment/{id}</mark> deletes an appointment with the specified id</li></ul><ul id="0ce52492-21c2-47c4-b517-423d1746d6bf" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-red">DELETE /appointments</mark> deletes all appointments</li></ul><p id="0d873580-f21e-4416-8f29-59f1fd0e0f49" class="">
+</p><p id="48324636-99ff-4106-b14b-4cec2ca0fdf2" class="">
+</p><h3 id="dc9a7f3a-73e5-4956-8e15-bb7fe34ea233" class="">Error responses API-specific</h3><ul id="6beeac9d-7eb0-4c55-9ddf-fc604c4832ff" class="bulleted-list"><li style="list-style-type:disc">404 NOT FOUND</li></ul><ul id="43028136-92c2-4b2e-9c70-b885e4c0beae" class="bulleted-list"><li style="list-style-type:disc">204 NO CONTENT</li></ul><ul id="4da34c68-5d7d-45e5-9fbe-1091f3f84907" class="bulleted-list"><li style="list-style-type:disc">406 NOT ACCEPTABLE</li></ul><ul id="3e3cea1f-e7ad-4614-94cf-db29aea38970" class="bulleted-list"><li style="list-style-type:disc">400 BAD REQUEST</li></ul><p id="a97446b8-1829-4372-bc9a-eb8b081c395a" class="">
+</p><h3 id="f0e221f9-5dcd-456e-b766-fa46e4e47037" class="">The next steps cover instructions for a local test of the API.</h3><p id="7b68786c-1ad7-43f5-b788-877d676418ad" class="">
+</p><p id="b45cc80b-8a54-4c9d-a97a-130e535ce3cc" class="">We need to link a MySQL database to our project by changing some line codes on the appliation.properties file to point to the database:</p><pre id="10eb5597-fd2f-4472-aa24-585801390ee5" class="code code-wrap"><code>spring.datasource.url=jdbc:mysql://{database IP}:{database port}/{database name}
+spring.datasource.username={Database user name}
+spring.datasource.password={database password}</code></pre><p id="7d648877-0527-4a2c-b7c3-b814dc35abe6" class="">On the project path, we execute the following command to install and start the project:</p><pre id="c10646a8-1c1e-4f5f-a48b-70d220e50fc6" class="code code-wrap"><code>mvn clean install spring-boot:run
+</code></pre><p id="ac5f8346-7d86-4b08-879c-3fdbcbd4e09c" class="">If everything is ok you should get on the last lines something similar to:</p><pre id="226d31a5-0510-4c86-916a-9b9b8ad2a551" class="code code-wrap"><code>INFO 40862 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer: Tomcat started on port(s): 8080 (http) with context path &#x27;&#x27;
+INFO 40862 --- [main] com.example.demo.TechhubApplication: Started TechhubApplication in 5.797 seconds (JVM running for 6.691)
+</code></pre><p id="f7732b66-6954-428c-b885-2222457cec32" class="">Once our maven-embedded Tomcat server is up and running, you can use your favorite test application for API testing. All examples are made with Postman using <a href="https://localhost:8080/">https://localhost:8080</a> as the base URL.</p><p id="407a752b-e67e-40b8-94c1-f1ff566e43fa" class="">Examples are shown below.</p><h1 id="74876506-ac7c-40d4-aedc-40426672a44e" class=""><strong>Room endpoints</strong></h1><h2 id="4360faad-8736-41d5-877d-819e2789891e" class=""><mark class="highlight-red">GET /rooms</mark></h2><p id="64a54b27-4a4c-4e27-90d1-a027d5f1adf5" class="">Returns all the rooms on the database if there are any</p><p id="35775431-b8d3-4844-8321-6069819e06cf" class="">
+</p><p id="77e9ddf6-c57a-4000-8455-126f55ed3651" class=""><strong>Request Parameters:</strong></p><ul id="18ed474b-d033-4443-b495-776edfeafad1" class="bulleted-list"><li style="list-style-type:disc">No request parameters</li></ul><p id="ed8538ef-1eb9-4ef3-88aa-ed365cecc100" class="">
+</p><p id="9c45dd53-732a-4e5d-8ea1-34d7948b736a" class=""><strong>Response</strong></p><ul id="f524f26e-3ff0-4d39-9606-28d0dc3b67ea" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><pre id="a7ff2e28-eef7-44be-94d5-fd4b6dac892a" class="code"><code>[
+    {
+        &quot;roomName&quot;: &quot;Blood extraction&quot;
+    },
+    {
+        &quot;roomName&quot;: &quot;Pharmacy&quot;
+    }
+]</code></pre><p id="e52fd0df-f57d-4622-9687-a21244979428" class="">
+</p><ul id="38f1ce10-3aa3-47ab-bf55-1d64209ea546" class="bulleted-list"><li style="list-style-type:disc">Status code: 404 NOT FOUND</li></ul><p id="2a680409-7638-4452-a581-3f54b819b939" class="">This status code doesn&#x27;t return any response body.</p><p id="fd353099-81c0-4a64-bddd-cf0188d9f06c" class="">There is no rooms in the database</p><h2 id="bacdb544-c48e-4567-8d96-91b9148b6178" class=""><mark class="highlight-red">GET /rooms/{roomName}</mark></h2><p id="1d0e90ac-9ab0-45dc-88f1-87928c177855" class="">
+</p><p id="6a0ed999-0b3b-4bd9-b126-54c2bae029b3" class=""><strong>Example</strong></p><p id="f339bb10-cb34-4808-9671-116af93a85bc" class="">GET /rooms/Dermatology</p><p id="6d8ce49a-68fc-47ac-86a8-1a69b7e9659e" class="">
+</p><p id="000d6209-4a9f-4ef6-8625-3358b2b422a4" class=""><strong>Request Parameters:</strong></p><ul id="9bf42a20-6a46-4f39-8bfc-89f78109723d" class="bulleted-list"><li style="list-style-type:disc"><code><strong>roomName</strong></code> : The unique <code><strong>roomName</strong></code> (of type <code><strong>String</strong></code>) of the resource to be retrieved.</li></ul><p id="471ab7f7-6c0b-45bf-9bc0-78cd5b1e45ec" class="">
+</p><p id="97eca074-6541-4ead-bb47-37b37a292128" class=""><strong>Response</strong></p><ul id="edec11b9-ae1c-4258-9c55-7ccbc57daebc" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><pre id="07400a8b-b069-4d0c-a1d2-4aecb1531db3" class="code"><code>{
+    &quot;roomName&quot;: &quot;Dermatology&quot;
+}</code></pre><p id="5918fe0d-4f17-471a-a9b4-14b6c349fb93" class="">
+</p><ul id="a396e7af-1f14-4424-b751-508260054b5d" class="bulleted-list"><li style="list-style-type:disc">Status code: 404 NOT FOUND</li></ul><p id="4e49fa54-ed71-4d50-b802-4f4405b7d95c" class="">This status code doesn&#x27;t return any response body.</p><p id="8470fa3b-0859-40c8-a508-d32db9585a3c" class="">There’s no room matching the criteria.</p><h2 id="77838091-f002-48f7-bb22-db888defc844" class=""><mark class="highlight-red">POST /room</mark></h2><p id="aa1d2669-5748-4648-b131-bc88b4b57950" class="">Creates a room on the database</p><p id="4d79d937-b894-4b02-bb70-e25706ba79d7" class=""><strong>Request Parameters:</strong></p><pre id="9d6099ee-f012-4f25-a2c8-da5645bc9242" class="code"><code>{
+  &quot;roomName&quot;: &quot;Pharmacy&quot;
+}</code></pre><p id="056bb114-b2bc-4734-9212-bd854037fa03" class="">
+</p><p id="e652b8e9-b109-46bb-b83d-ccff7f8ac565" class=""><strong>Response</strong></p><ul id="6f208a7d-07e5-4e8c-bb12-94b84f14fbed" class="bulleted-list"><li style="list-style-type:disc">Status code: 201 CREATED</li></ul><pre id="4041754e-caa2-4271-a2b4-b0ea6ef020ab" class="code"><code>{
+    &quot;roomName&quot;: &quot;Pharmacy&quot;
+}</code></pre><h2 id="84dc4b91-70f7-4c21-bcc0-9a415d0a5d6f" class=""><mark class="highlight-red">DELETE /rooms/{roomName}</mark></h2><p id="061c2bef-d139-408f-b0b2-137901e654f5" class="">
+</p><p id="d219f8d6-74d6-4708-8156-ad481ebaf9b4" class=""><strong>Example</strong></p><p id="12181f26-f99b-4f9d-b0e3-5f717621e1ee" class="">DELETE /rooms/Dermatology</p><p id="87918936-36e1-4242-b65e-8287fc2ab137" class="">
+</p><p id="f6110eff-671d-4d1c-aea3-c52f26c9b740" class=""><strong>Request Parameters:</strong></p><ul id="5515f0fb-4075-4133-9900-9a4d1e8bddd4" class="bulleted-list"><li style="list-style-type:disc"><code><strong>roomName</strong></code> : The unique <code><strong>roomName</strong></code> (of type <code><strong>String</strong></code>) of the resource to be retrieved.</li></ul><p id="b272fdcf-4ddb-4d43-ae67-dbf39d2ffc29" class="">
+<strong>Response</strong></p><ul id="a517f514-e571-4b72-911c-65f4a04e9d0a" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><p id="7478b42b-7f31-4c35-aa4b-d6fca368e53a" class="">This status code doesn&#x27;t return any response body.</p><p id="f987fb29-6af7-4901-bd05-2d11edfad467" class="">The room has been deleted.</p><p id="2fbe9c0c-a25e-468a-8aec-4ddea36bf3fd" class="">
+</p><ul id="79ae82ce-17da-4d4d-8ab8-2cb22f9e291b" class="bulleted-list"><li style="list-style-type:disc">Status code: 404 NOT FOUND</li></ul><p id="7f0bdc10-d7f2-417b-ab3f-e4e5460064ba" class="">This status code doesn&#x27;t return any response body.</p><p id="2db7ec05-52d0-48e2-bb2a-0c9cc8a58267" class="">There’s no room matching the criteria to be deleted.</p><h2 id="861c0b38-9aa8-4bd6-b38c-8727726c6c2c" class=""><mark class="highlight-red">DELETE /rooms</mark></h2><p id="149e6424-3931-41a2-bf9e-04376c28a379" class="">
+</p><p id="c88a3f68-52e6-4864-92ac-4374a5dbf16e" class=""><strong>Request Parameters:</strong></p><ul id="1a2fa1f1-e2af-4a59-a42f-d03259215fd8" class="bulleted-list"><li style="list-style-type:disc">No request parameters</li></ul><p id="aebebffe-e574-48ad-a897-b3a4120cf242" class="">
+</p><p id="c3627c17-0e09-44a8-a402-016ad4bd1d6e" class=""><strong>Response:</strong></p><ul id="99acfca7-1c3a-4b93-8684-6c045c3f27cc" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><p id="9fb962a7-555c-402f-8e0c-f72e9750cc51" class="">This status code doesn&#x27;t return any response body.</p><p id="9f54f66f-ef38-4563-9190-8dcd9ffbacd5" class="">All rooms have been deleted from the database.</p><h1 id="7a5a2f05-0bdc-4108-938f-66acb2714099" class=""><strong>Patient endpoints</strong></h1><p id="98cbfb12-4d3b-449e-a987-e434b49458f1" class="">Add folder description…</p><h2 id="0d88b83d-9d57-4f9a-9983-1a6ced4c839f" class=""><mark class="highlight-red">GET /patients</mark></h2><p id="513dc07e-0675-4090-b964-e519d8ad64e8" class=""><strong>Request Parameters:</strong></p><ul id="e1bba274-6025-4af9-a942-9cb6f89aeecd" class="bulleted-list"><li style="list-style-type:disc">No request parameters</li></ul><p id="e82dd681-7509-4fbb-b93d-cc7f64ea281d" class="">
+</p><p id="e5671987-5ca8-43d9-88ab-ad39550cb1ff" class=""><strong>Response</strong></p><ul id="59b8d31b-f7be-446f-bf96-cc16f6485ca5" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><pre id="45a29b19-1a93-4194-b006-a6252f7008d4" class="code"><code>[
+    {
+        &quot;firstName&quot;: &quot;Jose Luis&quot;,
+        &quot;lastName&quot;: &quot;Olaya&quot;,
+        &quot;age&quot;: 37,
+        &quot;email&quot;: &quot;j.olaya@hospital.accwe&quot;,
+        &quot;id&quot;: 17
+    }
+]</code></pre><p id="0183cd52-fce4-40ca-8524-9908239c09bc" class="">
+</p><ul id="6a6a179d-0bcd-4463-973a-732377fc907b" class="bulleted-list"><li style="list-style-type:disc">Status code: 204 NO CONTENT</li></ul><p id="618b140e-32c8-489c-858d-e89ef4435060" class="">This status code doesn&#x27;t return any response body.</p><p id="0b76b1b4-b14a-4139-b074-8ab444bf7222" class="">There are no patients in the database</p><h2 id="d3a7ca1e-f5fa-4636-9ddb-e734ca934c82" class=""><mark class="highlight-red">GET /patients/{id}</mark></h2><p id="e0898e5d-4d00-4702-b95d-24154a253b0a" class=""><strong>Example</strong></p><p id="7cd54666-ae8e-4c2f-813e-7cfbf8b0a7fd" class="">GET /patients/17</p><p id="694eada3-cd78-47cd-9833-25d8233cf6aa" class=""><strong>Request Parameters:</strong></p><ul id="642d51f1-ae74-4c15-b86f-d75b892b7b3a" class="bulleted-list"><li style="list-style-type:disc"><code><strong>id</strong></code> : The unique <code><strong>id</strong></code> (of type <code><strong>long</strong></code>) of the resource to be retrieved.</li></ul><p id="3d5b36ad-87dd-4b2c-a823-38b6f9d614b4" class="">
+</p><p id="0e3b594a-0def-470e-97d6-a6a114112d6f" class=""><strong>Response</strong></p><ul id="6a7cea15-8797-477d-8024-28dea2fba287" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><pre id="a75d8160-2ee1-450e-8ee2-691a1ba99103" class="code"><code>[
+    {
+        &quot;firstName&quot;: &quot;Jose Luis&quot;,
+        &quot;lastName&quot;: &quot;Olaya&quot;,
+        &quot;age&quot;: 37,
+        &quot;email&quot;: &quot;j.olaya@hospital.accwe&quot;,
+        &quot;id&quot;: 17
+    }
+]</code></pre><p id="5e9df96d-c7f3-4b6c-ada9-04df2d9bc27c" class="">
+</p><ul id="7ff81de8-795a-4af9-bac1-c34211bac619" class="bulleted-list"><li style="list-style-type:disc">Status code: 404 NOT FOUND</li></ul><p id="82724b44-8e3e-45ce-868d-557801323aa9" class="">This status code doesn&#x27;t return any response body.</p><p id="ab4f6d9e-1136-4e28-83fa-0c9271caf425" class="">There’s no patient matching the criteria.</p><h2 id="6a812050-b1c1-4d36-9645-cb8a98ad3080" class=""><mark class="highlight-red">POST /patient</mark></h2><p id="cf3ebae2-0f38-4126-a9ee-163cd9c74362" class="">
+</p><p id="72e57e02-e5dc-4ee2-99da-d9d2f2bf1822" class=""><strong>Request Parameters:</strong></p><pre id="233fe4b1-969e-4d80-91c4-59119a9e904f" class="code"><code>    {
+        &quot;firstName&quot;: &quot;Jose Luis&quot;,
+        &quot;lastName&quot;: &quot;Olaya&quot;,
+        &quot;age&quot;: 37,
+        &quot;email&quot;: &quot;j.olaya@hospital.accwe&quot;
+    }</code></pre><p id="5cdc7bc9-95c7-4b74-a169-fbeef73688dc" class="">
+</p><p id="1c66c7ae-08be-426e-abf0-1a47fcc073b9" class=""><strong>Response</strong></p><ul id="0592775e-d3fd-4607-8415-f43e35dbda6a" class="bulleted-list"><li style="list-style-type:disc">Status code: 201 CREATED</li></ul><pre id="1ffb8bba-6676-4ec7-b624-59940b6ee3b8" class="code"><code>{
+    &quot;firstName&quot;: &quot;Jose Luis&quot;,
+    &quot;lastName&quot;: &quot;Olaya&quot;,
+    &quot;age&quot;: 37,
+    &quot;email&quot;: &quot;j.olaya@ehospital.accwe&quot;,
+    &quot;id&quot;: 17
+}</code></pre><p id="fedead14-588f-4116-b9a2-eb8399121f59" class="">
+</p><h2 id="acb385c4-794d-4091-8fc1-6c65c8aab08c" class=""><mark class="highlight-red">DELETE /patients/{id}</mark></h2><p id="e3aa3e78-b291-4f35-b1d3-54015f1065a2" class=""><strong>Example</strong></p><p id="0cfd41f3-11d7-41ca-acb7-d62d75e3f7ee" class="">DELETE /patients/17</p><p id="4a8dbd68-079a-4094-8ac0-966f65916cfe" class=""><strong>Request Parameters:</strong></p><ul id="4df7d143-808d-4eed-bbc3-6989584bed67" class="bulleted-list"><li style="list-style-type:disc"><code><strong>id</strong></code> : The unique <code><strong>id</strong></code> (of type <code><strong>long</strong></code>) of the resource to be retrieved.</li></ul><p id="8a7801e1-5a39-442c-81c8-85755fd97cbf" class="">
+</p><p id="6dab4e59-af6a-4dd9-96e7-c6cfae3ef9d7" class=""><strong>Response</strong></p><ul id="9bb48246-2fac-4e72-bc9a-c222dcef7d67" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><p id="fb265a39-04d7-4d74-936f-0aa612ac3f9f" class="">This status code doesn&#x27;t return any response body.</p><p id="d231b2e8-5fdd-49ad-954c-610ebabd1792" class="">The patient matching the id has been deleted.</p><p id="2e4fe5c7-9f7c-42fb-be08-e54497c514be" class="">
+</p><ul id="a54ab51c-b2b4-4ff2-afa5-c2cec3b98829" class="bulleted-list"><li style="list-style-type:disc">Status code: 404 NOT FOUND</li></ul><p id="4ea63daa-14ab-486f-8f7a-697a254011f7" class="">This status code doesn&#x27;t return any response body.</p><p id="fc163033-abfc-4865-9e57-a2c9c9e7fbdc" class="">There’s no patient matching the criteria.</p><h2 id="8f371804-5e72-4249-a358-643053c99455" class=""><mark class="highlight-red">DELETE /patients</mark></h2><p id="8c5fd18f-ac13-404d-924d-7c9f361a8f25" class=""><strong>Request Parameters:</strong></p><ul id="e659c6d7-aa42-4550-872e-eca84042c94c" class="bulleted-list"><li style="list-style-type:disc">No request parameters</li></ul><p id="ee7d8d8c-5091-4287-966d-c25175a20759" class="">
+</p><p id="3dcfa295-9a89-47a9-bc64-721b20f97fa6" class=""><strong>Response</strong></p><ul id="74d419f1-cc1d-4556-acef-17210f342ec4" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><p id="56a85e88-c32c-4397-9804-aa22d83ccf02" class="">This request doesn&#x27;t return any response body.</p><p id="5ec8a5bb-652f-44c3-8633-04203c5cf573" class="">All patients have been deleted from the database.</p><h1 id="eb83abc0-dcc6-4819-b1af-cd9fa9c4cff1" class=""><strong>Doctor endpoints</strong></h1><p id="7230ac1b-f6a8-4a95-867a-1b367896eb82" class="">Add folder description…</p><h2 id="0633e08b-f2cf-4876-a976-5ec5cacdf4d8" class=""><mark class="highlight-red">GET /doctors</mark></h2><p id="d494c81f-5a86-48da-b832-711666a1a2c6" class=""><strong>Request Parameters:</strong></p><ul id="2a677b78-6159-4e3e-8fd6-47636702a3a2" class="bulleted-list"><li style="list-style-type:disc">No request parameters</li></ul><p id="555ad99e-3a43-45fd-90b5-8459ccf7e5de" class="">
+</p><p id="bc96c400-5232-47b5-abed-084b981c2cf3" class=""><strong>Response</strong></p><ul id="2e3f512c-d589-4693-b5fe-d7b8486550c0" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><pre id="1c13cae7-ba8e-441b-b7a2-f7706608de83" class="code"><code>[
+    {
+        &quot;firstName&quot;: &quot;Luis Luis&quot;,
+        &quot;lastName&quot;: &quot;Olaya&quot;,
+        &quot;age&quot;: 37,
+        &quot;email&quot;: &quot;p.olaya@hospital.accwe&quot;,
+        &quot;id&quot;: 16
+    },
+		    {
+        &quot;firstName&quot;: &quot;Perla&quot;,
+        &quot;lastName&quot;: &quot;Amaya&quot;,
+        &quot;age&quot;: 37,
+        &quot;email&quot;: &quot;p.amaya@ehospital.accwe&quot;,
+        &quot;id&quot;: 17
+    }
+]</code></pre><p id="03dcfc94-3ec5-43b8-9478-b16f2fac55d4" class="">
+</p><ul id="3347ab26-3591-4270-abc2-ff02aa425d5d" class="bulleted-list"><li style="list-style-type:disc">Status code: 204 NO CONTENT</li></ul><p id="394c3974-81b4-4dcc-93cc-551f3d65a815" class="">This status code doesn&#x27;t return any response body.</p><p id="d4fb50af-5a70-4fd9-833b-eb58d273a015" class="">There are no doctors in the database</p><h2 id="d5a49035-3058-479c-bc25-759dba9edafa" class=""><mark class="highlight-red">GET /doctors/{id}</mark></h2><p id="ed212cce-3f53-4450-a4e5-8471a7497df3" class=""><strong>Example</strong></p><p id="1446dd56-3c2c-4180-9b6b-a4b9bd8c63a2" class="">GET/doctors/17</p><p id="fd875bf3-4a65-4df1-b132-ff7a0220ccfb" class=""><strong>Request Parameters:</strong></p><ul id="468f6493-ae03-4170-9eb2-8f96c064d8c7" class="bulleted-list"><li style="list-style-type:disc"><code><strong>id</strong></code> : The unique <code><strong>id</strong></code> (of type <code><strong>long</strong></code>) of the resource to be retrieved.</li></ul><p id="5aef77e9-9887-427b-b3c2-8b554167ad7a" class="">
+</p><p id="a060eded-1aa1-4bc2-b643-81037603151c" class=""><strong>Response</strong></p><ul id="38728643-1caa-4b5c-a446-4e98f38d227f" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><pre id="96521f3c-8fc1-4541-ab72-e55f3659af14" class="code"><code>[
+    {
+        &quot;firstName&quot;: &quot;Perla&quot;,
+        &quot;lastName&quot;: &quot;Amaya&quot;,
+        &quot;age&quot;: 37,
+        &quot;email&quot;: &quot;p.amaaya@hospital.accwe&quot;,
+        &quot;id&quot;: 17
+    }
+]</code></pre><p id="657b6ad0-6f2a-4d66-8713-44e1af682fca" class="">
+</p><ul id="6057bbcc-947b-47df-a9f5-3c5e599eb8ed" class="bulleted-list"><li style="list-style-type:disc">Status code: 404 NOT FOUND</li></ul><p id="b40de21b-de4d-4b6e-88fd-00ce10bc96c0" class="">This status code doesn&#x27;t return any response body.</p><p id="e9e926d0-17db-404a-8f35-21f67aaad365" class="">There’s no doctor matching the criteria.</p><h2 id="9d436f35-2a10-4d8e-92e1-146b2c3acdcd" class=""><mark class="highlight-red">POST /doctor</mark></h2><p id="455de295-457a-4563-b649-d1d422ee8db1" class="">
+</p><p id="a366c988-c8e6-409b-b81b-516b4823d448" class=""><strong>Request Parameters:</strong></p><pre id="cb7dee61-9257-4246-bb63-59af95cec149" class="code"><code>    {
+        &quot;firstName&quot;: &quot;Perla&quot;,
+        &quot;lastName&quot;: &quot;Amaya&quot;,
+        &quot;age&quot;: 37,
+        &quot;email&quot;: &quot;j.amaya@hospital.accwe&quot;
+    }</code></pre><p id="0861a309-cb98-441f-b3b9-fa2e353618c3" class="">
+</p><p id="e6760852-6d7f-4a69-bb87-506cbc9a5d57" class=""><strong>Response</strong></p><ul id="e9f7d7f7-751d-408c-a939-73852c5bee8d" class="bulleted-list"><li style="list-style-type:disc">Status code: 201 CREATED</li></ul><pre id="9985c2fb-26e5-42f8-a5b9-0a678249c966" class="code"><code>{
+    &quot;firstName&quot;: &quot;Perla&quot;,
+    &quot;lastName&quot;: &quot;Amaya&quot;,
+    &quot;age&quot;: 37,
+    &quot;email&quot;: &quot;j.amaya@hospital.accwe&quot;,
+    &quot;id&quot;: 17
+}</code></pre><p id="87cf5117-c08c-404e-a00a-10006647c176" class="">
+</p><h2 id="5b8dffd1-e640-4830-ab17-f2a0b2e7b4e2" class=""><mark class="highlight-red">DELETE /doctors/{id}</mark></h2><p id="cce85e0e-bc1f-4dd6-a170-3a8135e678fc" class=""><strong>Example</strong></p><p id="f3f71a82-6f00-42d7-ac7a-8c277164974c" class="">DELETE /doctors/17</p><p id="6af36dff-a14b-41d1-a92a-ecc14b5d73a8" class=""><strong>Request Parameters:</strong></p><ul id="76f14c05-2d47-4164-9539-a349b7261aae" class="bulleted-list"><li style="list-style-type:disc"><code><strong>id</strong></code> : The unique <code><strong>id</strong></code> (of type <code><strong>long</strong></code>) of the resource to be retrieved.</li></ul><p id="0d27ea47-5a08-4644-a8bd-cc87f6d0d7e6" class="">
+</p><p id="1573e1ab-c18b-4a6f-b041-87d192a5a8d2" class=""><strong>Response</strong></p><ul id="c0d06602-c50f-4337-a21a-806ad977df23" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><p id="ae3ed488-9c77-4b14-a35a-7bfb07294731" class="">This status code doesn&#x27;t return any response body.</p><p id="d481c662-36e3-492b-80ea-ec44bdbb6212" class="">The doctor matching the id has been deleted.</p><p id="f74c9e05-bae8-452a-9976-815f737ac235" class="">
+</p><ul id="ed30fe62-b9b3-4bbf-885b-fbd4795b2dae" class="bulleted-list"><li style="list-style-type:disc">Status code: 404 NOT FOUND</li></ul><p id="1e0c7eb4-6892-492d-88b4-665d7a6d723d" class="">This status code doesn&#x27;t return any response body.</p><p id="a26d310b-91ab-47de-b706-668779e6554a" class="">There’s no doctor matching the criteria.</p><h2 id="9659f56c-57a7-42ab-b1c6-a371e12512c4" class=""><mark class="highlight-red">DELETE /doctors</mark></h2><p id="644993b2-e82c-451e-85ea-0f0c935ef801" class="">
+</p><p id="5b54b540-2cdf-409e-be1c-7163c4641f63" class=""><strong>Request Parameters:</strong></p><ul id="197cad1e-4a14-4c74-aab6-7cb13b24d58c" class="bulleted-list"><li style="list-style-type:disc">No request parameters</li></ul><p id="920f73fc-efa3-46d1-b616-c6c96f80e2a5" class="">
+</p><p id="4b4e0f13-5b52-4ba5-9a12-a16938c75e82" class=""><strong>Response</strong></p><ul id="d956811b-146a-47a0-8663-c416f3d21cd3" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><p id="8fef6a75-5e09-4394-9173-09de21af9053" class="">This request doesn&#x27;t return any response body.</p><p id="9deb55f1-5c31-43b7-b49c-2eef5f541267" class="">All doctors have been deleted from the database.</p><h1 id="172debcb-da8f-472a-8500-83718a4dd0bc" class="">A<strong>ppointment endpoints</strong></h1><p id="3e225c89-1e7b-4c3a-ad3c-042adf7cbba5" class="">Add folder description…</p><h2 id="3497c2a9-d68e-4260-9d9a-58fd5d2db29c" class=""><mark class="highlight-red">GET /appointments</mark></h2><p id="e36b7770-88a4-47cf-bbc1-897b5b066968" class=""><strong>Request Parameters:</strong></p><ul id="eb650253-975f-4453-b316-4e80fb1bdf62" class="bulleted-list"><li style="list-style-type:disc">No request parameters</li></ul><p id="9296aa63-8e78-4775-ad5e-a42538336644" class="">
+</p><p id="403bcc9f-f9ae-4a8b-9c2f-19696668a8d0" class=""><strong>Response</strong></p><ul id="d351895c-579c-4d2c-bb2e-668819b8bd05" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><pre id="6e95f6a8-51b8-4bd6-9a25-c557a4249fcd" class="code"><code>[
+    {
+        &quot;id&quot;: 19,
+        &quot;patient&quot;: {
+            &quot;firstName&quot;: &quot;Jose Luis&quot;,
+            &quot;lastName&quot;: &quot;Olaya&quot;,
+            &quot;age&quot;: 37,
+            &quot;email&quot;: &quot;j.olaya@email.com&quot;,
+            &quot;id&quot;: 21
+        },
+        &quot;doctor&quot;: {
+            &quot;firstName&quot;: &quot;Perla&quot;,
+            &quot;lastName&quot;: &quot;Amalia&quot;,
+            &quot;age&quot;: 24,
+            &quot;email&quot;: &quot;p.amalia@hospital.accwe&quot;,
+            &quot;id&quot;: 20
+        },
+        &quot;room&quot;: {
+            &quot;roomName&quot;: &quot;Traumatology&quot;
+        },
+        &quot;startsAt&quot;: &quot;19:00 24/04/2023&quot;,
+        &quot;finishesAt&quot;: &quot;20:00 24/04/2023&quot;
+    }
+]</code></pre><p id="514f628d-d4e2-4394-b0c4-4193bc3c7049" class="">
+</p><ul id="919f8c77-6094-4654-b3b4-02a5f5f9778f" class="bulleted-list"><li style="list-style-type:disc">Status code: 204 NO CONTENT</li></ul><p id="89707a4a-e2b0-4464-bae0-816f14c88fb2" class="">This status code doesn&#x27;t return any response body.</p><p id="ade8f456-d65a-4da5-ba93-17a5d38b6921" class="">There are no appointments in the database</p><h2 id="0c848b8e-c1b6-43ec-ad71-f0b0ee2bd789" class=""><mark class="highlight-red">GET /appointments/{id}</mark></h2><p id="7dfbd1cb-d092-4958-b8d5-535510091726" class=""><strong>Example</strong></p><p id="43d5e2b9-4a07-42d7-829d-1ff87b933c8d" class="">GET /appointments/19</p><p id="3fc05e57-5578-461a-a725-8e6eded671e9" class=""><strong>Request Parameters:</strong></p><ul id="1d58e194-8331-4af1-8e1a-7c501444249e" class="bulleted-list"><li style="list-style-type:disc"><code><strong>id</strong></code> : The unique <code><strong>id</strong></code> (of type <code><strong>long</strong></code>) of the resource to be retrieved.</li></ul><p id="f82d1cc6-b2a6-49b7-b6d3-4400883c3b62" class="">
+</p><p id="62def2c4-0023-4154-a8f5-26ee207709a2" class=""><strong>Response</strong></p><ul id="f787934a-a763-4445-bdc0-88ca5c8128f7" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK<pre id="e0f979d5-68b4-44ce-b468-88bde477b636" class="code"><code>[
+    {
+        &quot;id&quot;: 19,
+        &quot;patient&quot;: {
+            &quot;firstName&quot;: &quot;Jose Luis&quot;,
+            &quot;lastName&quot;: &quot;Olaya&quot;,
+            &quot;age&quot;: 37,
+            &quot;email&quot;: &quot;j.olaya@email.com&quot;,
+            &quot;id&quot;: 21
+        },
+        &quot;doctor&quot;: {
+            &quot;firstName&quot;: &quot;Perla&quot;,
+            &quot;lastName&quot;: &quot;Amalia&quot;,
+            &quot;age&quot;: 24,
+            &quot;email&quot;: &quot;p.amalia@hospital.accwe&quot;,
+            &quot;id&quot;: 20
+        },
+        &quot;room&quot;: {
+            &quot;roomName&quot;: &quot;Traumatology&quot;
+        },
+        &quot;startsAt&quot;: &quot;19:00 24/04/2023&quot;,
+        &quot;finishesAt&quot;: &quot;20:00 24/04/2023&quot;
+    }
+]</code></pre></li></ul><p id="012cd8db-7cb5-41fe-bac9-a8042bba3977" class="">
+</p><ul id="ecabfbbd-c02e-459e-b54e-8fa9ca19a6b1" class="bulleted-list"><li style="list-style-type:disc">Status code: 404 NOT FOUND</li></ul><p id="acb4e398-8fea-4b99-8879-eb53f092812a" class="">This status code doesn&#x27;t return any response body.</p><p id="603610db-fd93-4afa-a611-e95186d25768" class="">There’s no appointment matching the criteria.</p><p id="0ae49954-e9c0-4a7e-badf-b59e569a73f7" class="">
+</p><h2 id="8c1a5d8d-757d-4fd5-9bed-cc98bc71081e" class=""><mark class="highlight-red">POST /appointment</mark></h2><p id="580f0ef9-719d-468a-82c0-aa88a4a433bd" class="">
+</p><p id="3bbdcba1-3480-4fa8-a16c-4d478a6476b1" class=""><strong>Request Parameters:</strong></p><pre id="ac93c992-8fba-41b3-83c8-838cd287bb73" class="code"><code>{
+  &quot;patient&quot;: {
+    &quot;firstName&quot;: &quot;Jose Luis&quot;,
+    &quot;lastName&quot;: &quot;Olaya&quot;,
+    &quot;age&quot;: 37,
+    &quot;email&quot;: &quot;j.olaya@email.com&quot;
+  },
+  &quot;doctor&quot;: {
+    &quot;firstName&quot;: &quot;Perla&quot;,
+    &quot;lastName&quot;: &quot;Amalia&quot;,
+    &quot;age&quot;: 24,
+    &quot;email&quot;: &quot;p.amalia@hospital.accwe&quot;
+  },
+  &quot;room&quot;: {
+    &quot;roomName&quot;: &quot;Traumatology&quot;
+  },
+  &quot;startsAt&quot;: &quot;20:30 24/04/2023&quot;,
+  &quot;finishesAt&quot;: &quot;20:30 24/04/2023&quot;
+}</code></pre><p id="94857cf0-8901-43b8-bd2a-6e8fd23a6034" class="">
+</p><p id="4118ad11-9fb7-4592-8e9f-922d15e3dcaa" class=""><strong>Response</strong></p><ul id="2c106343-5fb7-4709-8664-3acf31ed915d" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><ul id="c8538205-fa0a-4967-93d1-e9e3406bef7a" class="bulleted-list"><li style="list-style-type:disc">This status code doesn&#x27;t return any response body.</li></ul><p id="b2200a31-7320-404a-b03d-1527ec1ebec2" class="">The appointment hs been created</p><p id="4a956788-3ae2-405d-bf1e-9ef044a0ce18" class="">
+</p><ul id="0f4fdff0-f84e-4afa-9db9-1c1bbd15943c" class="bulleted-list"><li style="list-style-type:disc">Status code: 406 NOT ACCEPTABLE</li></ul><p id="888fa110-0d25-4c1e-8c3b-6a1c6b13b8ab" class="">This status code doesn&#x27;t return any response body.</p><p id="1c5f3229-bb1e-4c84-b274-d9c3b62cd8d9" class="">The appointment overlaps with an existing one</p><p id="e37a2a7d-321f-4b2c-87b5-8b20522e3198" class="">
+</p><ul id="0416e237-11bf-4d8c-b573-130a1e7a5783" class="bulleted-list"><li style="list-style-type:disc">Status code: BAD REQUEST</li></ul><p id="81d38e48-4cda-4844-9413-9f94bcee0167" class="">This status code doesn&#x27;t return any response body.</p><p id="2bb97375-2d0a-4528-9e09-03b6ee30cea2" class="">The appointment time is incorrect (Start and ends at the same time)</p><p id="8e4dde6a-eb8c-497f-9ee6-1eec76ab3b82" class="">
+</p><h2 id="102d448a-1643-4248-9ae4-5497fba89384" class=""><mark class="highlight-red">DELETE /appointments/{id}</mark></h2><p id="b7359ce4-b0fe-47b9-bc8c-723288a20fd5" class=""><strong>Example</strong></p><p id="acc02eab-0120-4677-a92c-1d77588e9f42" class="">DELETE/appointments/19</p><p id="5a1f5fed-b209-40e4-bb09-9755202c1850" class=""><strong>Request Parameters:</strong></p><ul id="ba30a305-acce-405e-a11d-7c9b927ac22c" class="bulleted-list"><li style="list-style-type:disc"><code><strong>id</strong></code> : The unique <code><strong>id</strong></code> (of type <code><strong>long</strong></code>) of the resource to be retrieved.</li></ul><p id="5bb57665-7fa1-4726-8f09-32f73e5daa78" class="">
+</p><p id="61271d57-7454-4ac8-a340-26a4d248f974" class=""><strong>Response</strong></p><ul id="3f99e894-8322-45c3-b314-cc9411e1400d" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><p id="47b03664-d1b4-4494-ba1d-0bd219405f9b" class="">This status code doesn&#x27;t return any response body.</p><p id="840dffcc-1c67-47da-a30e-4c8bac9c8a2c" class="">The appointment matching the id has been deleted.</p><p id="a86047ad-bad2-423e-8646-dc20f306602b" class="">
+</p><ul id="61610ee7-d3fe-483a-9cb2-d164f8bdd073" class="bulleted-list"><li style="list-style-type:disc">Status code: 404 NOT FOUND</li></ul><p id="22eb65c5-167f-4bf5-8f7b-c30ee00ca15c" class="">This status code doesn&#x27;t return any response body.</p><p id="a5bd1da4-1efb-4d21-b2fa-6c07b613cb13" class="">There’s no appointment matching the criteria.</p><h2 id="774cb0c2-ece6-4da9-8527-594c5c2a2119" class=""><mark class="highlight-red">DELETE /appointments</mark></h2><p id="28a5b8b4-7741-42b5-8038-f492ce05c596" class=""><strong>Request Parameters:</strong></p><ul id="87d20cb1-ada6-442c-b170-e26312c476a4" class="bulleted-list"><li style="list-style-type:disc">No request parameters</li></ul><p id="7a040e52-0ec6-4739-b35c-2d3e11141b4b" class="">
+</p><p id="1ce835dc-0292-42ef-94eb-00d93119280f" class=""><strong>Response</strong></p><ul id="2f0fc4c9-a2f7-46e6-99ab-19bbc22898e3" class="bulleted-list"><li style="list-style-type:disc">Status code: 200 OK</li></ul><p id="99083c18-5f81-401d-b21d-259f81934a82" class="">This request doesn&#x27;t return any response body.</p><p id="cb5ab283-3911-4a66-8536-527d14301b37" class="">All appointments have been deleted from the database.</p><p id="244c9c9b-29c3-4e5a-a0f5-1a375c38fb8d" class="">
+</p><h2 id="3c86be15-cd87-4120-afcd-b65376410c23" class=""><strong>END OF THE DOCUMENT</strong></h2><p id="8c387bcd-9e63-47cb-a73c-53f9e9b3a0ad" class="">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
