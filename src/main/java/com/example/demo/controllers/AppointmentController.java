@@ -54,6 +54,10 @@ public class AppointmentController {
     public ResponseEntity<List<Appointment>> createAppointment(@RequestBody Appointment appointment){
 
         List<Appointment> appointments = new ArrayList<>(appointmentRepository.findAll());
+
+        if(appointment.getStartsAt().equals(appointment.getFinishesAt()))
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
         //To verify if our appointment overlaps an existing one
         if(!appointments.isEmpty()){
             for(Appointment existingAppointment : appointments){
@@ -62,9 +66,6 @@ public class AppointmentController {
                 }
             }
         }
-
-        if(appointment.getStartsAt().equals(appointment.getFinishesAt()))
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 
         appointmentRepository.save(appointment);
         return new ResponseEntity<>(HttpStatus.OK);
