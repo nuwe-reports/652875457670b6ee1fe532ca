@@ -1,37 +1,23 @@
-# Stage 1: Build and run tests
-FROM maven:3.8.4-jdk-8 AS build
-WORKDIR /app
-
-# Copy the pom.xml file and download dependencies
-COPY pom.xml .
-RUN mvn dependency:go-offline
+# Stage 1: Build the microservice and run tests
+FROM maven:latest as builder
 
 # Copy source code and configuration files
-COPY src src
-COPY config config
-
-# Compile and run tests
-RUN mvn clean test
-
-# Stage 2: Package the application
-FROM maven:3.8.4-jdk-8 AS package
+COPY . /app
 WORKDIR /app
 
-# Copy results from Stage 1
-COPY --from=build /app/target target
+# Run tests
+RUN mvn test
 
-# Package the application
+# Stage 2: Compile and run the microservice
+FROM maven:latest
+
+# Copy only necessary files from the build stage
+COPY --from=builder /app /app
+WORKDIR /app
+
+# Compile and package the microservice
 RUN mvn package
 
-# Stage 3: Run the application
-FROM openjdk:8-jdk
-WORKDIR /app
-
-# Copy the JAR file from Stage 2
-COPY --from=package /app/target/your-spring-app.jar /app.jar
-
-# Expose the port on which the application will run
-EXPOSE 8080
-
-# Command to run the application
-CMD ["java", "-jar", "/app.jar"]
+# Microservice start command
+CMD mvn spring-boot:run
+#CMD ["java", "-jar", "target/*.jar"]
