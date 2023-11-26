@@ -1,0 +1,26 @@
+# Stage 1: Build the microservice and run tests
+FROM maven:latest as builder
+
+# Copy source code and configuration files
+COPY . /app
+WORKDIR /app
+
+# Run tests
+RUN mvn test
+
+# Stage 2: Compile and run the microservice
+FROM maven:latest
+
+# Copy only necessary files from the build stage
+COPY --from=builder /app /app
+WORKDIR /app
+
+# Expose port 8080
+EXPOSE 8080
+
+# Compile and package the microservice
+RUN mvn package
+
+# Microservice start command
+CMD mvn spring-boot:run
+#CMD ["java", "-jar", "target/*.jar"]
